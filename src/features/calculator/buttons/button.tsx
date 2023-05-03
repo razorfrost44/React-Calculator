@@ -1,0 +1,23 @@
+import { FC, ReactElement } from "react"
+
+export type ButtonProps = {
+  className: string
+  aria: string
+  onClick: () => void
+  label: string
+}
+
+const Button: FC<ButtonProps> = ({
+  className,
+  aria,
+  onClick,
+  label,
+}): ReactElement => {
+  return (
+    <button className={className} aria-label={aria} onClick={onClick}>
+      {label}
+    </button>
+  )
+}
+
+export default Button

@@ -12,3 +12,5 @@ import App from "./App"
 
 //   expect(getByText(/learn/i)).toBeInTheDocument()
 // })
+
+test("blank test prepare for app", () => {})

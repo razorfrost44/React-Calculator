@@ -21,3 +21,10 @@ export const subtract = (a: number, b: number) => {
 export const sum = (a: number, b: number) => {
   return a + b
 }
+
+export const AvailableOperations = {
+  divide: "/",
+  multiply: "*",
+  subtract: "-",
+  sum: "+",
+}
