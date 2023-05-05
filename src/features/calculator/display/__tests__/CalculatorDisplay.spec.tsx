@@ -11,6 +11,7 @@ describe("Calculator Display", () => {
     value: 5,
     onChange: mockFn,
     savedValue: 6,
+    operator: "+",
   }
 
   const setup = () => {
@@ -21,6 +22,7 @@ describe("Calculator Display", () => {
         value={initialState.value}
         onChange={initialState.onChange}
         savedValue={initialState.savedValue}
+        operator={initialState.operator}
       />,
     )
   }
@@ -128,19 +130,21 @@ describe("Calculator Display", () => {
     expect(actual).toHaveAttribute("value", expected)
   })
 
-  it("should show saved value", () => {
+  it("should show saved value and operator", () => {
     // arrange
     // act
-    const actual = screen.getByText(initialState.savedValue)
+    const actual = screen.getByText(
+      `${initialState.savedValue} ${initialState.operator}`,
+    )
     // assert
     expect(actual).toBeInTheDocument()
   })
 
-  it("should show saved value", () => {
+  it("should show saved value and operator test id", () => {
     // arrange
     // act
     const actual = screen.getByTestId("saved-value")
-    const expected = `${initialState.savedValue}`
+    const expected = `${initialState.savedValue} ${initialState.operator}`
     // assert
     expect(actual).toHaveTextContent(expected)
   })

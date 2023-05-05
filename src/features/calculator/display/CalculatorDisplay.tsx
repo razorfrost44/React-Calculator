@@ -7,6 +7,7 @@ export type DisplayProps = {
   value: number | string
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   savedValue: number | string
+  operator: string
 }
 
 const CalculatorDisplay: FC<DisplayProps> = ({
@@ -15,6 +16,7 @@ const CalculatorDisplay: FC<DisplayProps> = ({
   value,
   onChange,
   savedValue,
+  operator,
 }): ReactElement => {
   const isLastCharAPeriod = (str: string) => str.slice(-1) === "."
   const trimPeriod = (str: string) => str.slice(0, str.length - 1)
@@ -42,10 +44,14 @@ const CalculatorDisplay: FC<DisplayProps> = ({
     return value
   }
 
+  const getOperator = () => {
+    return operator ? ` ${operator}` : ""
+  }
+
   return (
     <section className="calculator-display-section">
       <span className="previous-value-span" data-testid="saved-value">
-        {generateSavedValue()}
+        {generateSavedValue() + getOperator()}
       </span>
       <input
         type="number"

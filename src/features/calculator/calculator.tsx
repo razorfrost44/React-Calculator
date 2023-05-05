@@ -1,12 +1,18 @@
 import { useAppSelector, useAppDispatch } from "../../app/hooks"
 import ControlPad from "./control-pad/ControlPad"
 import CalculatorDisplay from "./display/CalculatorDisplay"
-import { selectCurrent, selectPrevious, setCurrentVal } from "./calculatorSlice"
+import {
+  selectCurrent,
+  setCurrentVal,
+  selectPrevious,
+  selectOperator,
+} from "./calculatorSlice"
 import "./calculator.css"
 
 function Calculator() {
   const currentValue = useAppSelector(selectCurrent)
   const previousValue = useAppSelector(selectPrevious)
+  const operator = useAppSelector(selectOperator)
   const dispatch = useAppDispatch()
 
   const handleDisplayChange = (
@@ -23,6 +29,7 @@ function Calculator() {
         value={currentValue}
         onChange={handleDisplayChange}
         savedValue={previousValue}
+        operator={operator}
       />
       <ControlPad />
     </div>
