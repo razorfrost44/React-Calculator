@@ -447,7 +447,7 @@ describe("Calculator Slice", () => {
   it("should handle divide", () => {
     // arrange
     const expected: CalculatorState = {
-      currentValue: 101,
+      currentValue: 0,
       previousValue: 101,
       operator: "/",
     }
@@ -463,7 +463,7 @@ describe("Calculator Slice", () => {
   it("should handle multiply", () => {
     // arrange
     const expected: CalculatorState = {
-      currentValue: 101,
+      currentValue: 0,
       previousValue: 101,
       operator: "*",
     }
@@ -479,7 +479,7 @@ describe("Calculator Slice", () => {
   it("should handle subtract", () => {
     // arrange
     const expected: CalculatorState = {
-      currentValue: 101,
+      currentValue: 0,
       previousValue: 101,
       operator: "-",
     }
@@ -495,7 +495,7 @@ describe("Calculator Slice", () => {
   it("should handle sum", () => {
     // arrange
     const expected: CalculatorState = {
-      currentValue: 101,
+      currentValue: 0,
       previousValue: 101,
       operator: "+",
     }

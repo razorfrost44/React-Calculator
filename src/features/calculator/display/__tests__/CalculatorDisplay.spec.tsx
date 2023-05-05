@@ -1,15 +1,16 @@
 import { render, screen, fireEvent } from "@testing-library/react"
 import "@testing-library/jest-dom"
-import CalculatorDisplay from "../CalculatorDisplay"
+import CalculatorDisplay, { DisplayProps } from "../CalculatorDisplay"
 
 const mockFn = vi.fn()
 
 describe("Calculator Display", () => {
-  const initialState = {
+  const initialState: DisplayProps = {
     className: "calculator-display",
     aria: "Display for Calculator",
     value: 5,
     onChange: mockFn,
+    savedValue: 6,
   }
 
   const setup = () => {
@@ -19,6 +20,7 @@ describe("Calculator Display", () => {
         aria={initialState.aria}
         value={initialState.value}
         onChange={initialState.onChange}
+        savedValue={initialState.savedValue}
       />,
     )
   }
@@ -75,5 +77,95 @@ describe("Calculator Display", () => {
     fireEvent.change(actual, { target: { value: "10" } })
     // assert
     expect(mockFn).toHaveBeenCalled()
+  })
+
+  it("should display NaN as an empty string", () => {
+    // arrange
+    const startState = {
+      className: "calculator-display",
+      aria: "Display for Calculator-NaN",
+      value: NaN,
+      onChange: mockFn,
+    }
+    render(
+      <CalculatorDisplay
+        className={startState.className}
+        aria={startState.aria}
+        value={startState.value}
+        onChange={startState.onChange}
+        savedValue={initialState.savedValue}
+      />,
+    )
+    const expected: string = ""
+    // act
+    const actual = screen.getByLabelText(startState.aria)
+    fireEvent.change(actual, { target: { value: NaN } })
+    // assert
+    expect(actual).toHaveAttribute("value", expected)
+  })
+
+  it("should display 0. as 0", () => {
+    // arrange
+    const startState = {
+      className: "calculator-display",
+      aria: "Display for Calculator-NaN",
+      value: "0.",
+      onChange: mockFn,
+    }
+    render(
+      <CalculatorDisplay
+        className={startState.className}
+        aria={startState.aria}
+        value={startState.value}
+        onChange={startState.onChange}
+        savedValue={initialState.savedValue}
+      />,
+    )
+    const expected: string = "0"
+    // act
+    const actual = screen.getByLabelText(startState.aria)
+    // assert
+    expect(actual).toHaveAttribute("value", expected)
+  })
+
+  it("should show saved value", () => {
+    // arrange
+    // act
+    const actual = screen.getByText(initialState.savedValue)
+    // assert
+    expect(actual).toBeInTheDocument()
+  })
+
+  it("should show saved value", () => {
+    // arrange
+    // act
+    const actual = screen.getByTestId("saved-value")
+    const expected = `${initialState.savedValue}`
+    // assert
+    expect(actual).toHaveTextContent(expected)
+  })
+  it("should show saved value without periods", () => {
+    // arrange
+    const startState = {
+      className: "calculator-display",
+      aria: "Display for Calculator-NaN",
+      value: 5,
+      onChange: mockFn,
+      savedValue: "99.",
+    }
+    render(
+      <CalculatorDisplay
+        className={startState.className}
+        aria={startState.aria}
+        value={startState.value}
+        onChange={startState.onChange}
+        savedValue={startState.savedValue}
+      />,
+    )
+    const expected: string = "99"
+    // act
+    const actual = screen.getByText(expected)
+    // assert
+    expect(actual).toBeInTheDocument()
   })
 })

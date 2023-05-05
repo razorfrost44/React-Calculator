@@ -1,6 +1,13 @@
 import { LogicActionsObject } from "../logic/LogicActions"
 
-export const possibleControls = [
+type PossibleControls = {
+  className: string
+  aria: string
+  onClick: string
+  label: string
+}
+
+export const possibleControls: Array<PossibleControls> = [
   {
     className: "clear",
     aria: "Clear",

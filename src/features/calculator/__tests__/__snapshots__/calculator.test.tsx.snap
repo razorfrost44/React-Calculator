@@ -4,13 +4,18 @@ exports[`Control Pad > should match snapshot 1`] = `
 <div
   className="calculator"
 >
-  <input
-    aria-label="Display for the current calculator number"
-    className="calculator-display"
-    id="calc-display"
-    onChange={[Function]}
-    type="number"
-  />
+  <section>
+    <span
+      data-testid="saved-value"
+    />
+    <input
+      aria-label="Display for the current calculator number"
+      className="calculator-display"
+      id="calc-display"
+      onChange={[Function]}
+      type="number"
+    />
+  </section>
   <section
     className="control-pad"
   >

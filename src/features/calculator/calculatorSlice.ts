@@ -80,8 +80,8 @@ export const calculatorSlice = createSlice({
             case AvailableOperations.divide:
               if (state.currentValue && state.previousValue) {
                 state.currentValue = divide(
-                  state.previousValue,
-                  state.currentValue,
+                  parseFloat(state.previousValue),
+                  parseFloat(state.currentValue),
                 )
                 state.previousValue = 0
                 state.operator = ""
@@ -89,22 +89,25 @@ export const calculatorSlice = createSlice({
               break
             case AvailableOperations.multiply:
               state.currentValue = multiply(
-                state.previousValue,
-                state.currentValue,
+                parseFloat(state.previousValue),
+                parseFloat(state.currentValue),
               )
               state.previousValue = 0
               state.operator = ""
               break
             case AvailableOperations.subtract:
               state.currentValue = subtract(
-                state.previousValue,
-                state.currentValue,
+                parseFloat(state.previousValue),
+                parseFloat(state.currentValue),
               )
               state.previousValue = 0
               state.operator = ""
               break
             case AvailableOperations.sum:
-              state.currentValue = sum(state.previousValue, state.currentValue)
+              state.currentValue = sum(
+                parseFloat(state.previousValue),
+                parseFloat(state.currentValue),
+              )
               state.previousValue = 0
               state.operator = ""
               break
@@ -127,24 +130,28 @@ export const calculatorSlice = createSlice({
         case LogicActionsObject.divide:
           if (state.currentValue) {
             state.previousValue = state.currentValue
+            state.currentValue = 0
           }
           state.operator = AvailableOperations.divide
           break
         case LogicActionsObject.multiply:
           if (state.currentValue) {
             state.previousValue = state.currentValue
+            state.currentValue = 0
           }
           state.operator = AvailableOperations.multiply
           break
         case LogicActionsObject.subtract:
           if (state.currentValue) {
             state.previousValue = state.currentValue
+            state.currentValue = 0
           }
           state.operator = AvailableOperations.subtract
           break
         case LogicActionsObject.sum:
           if (state.currentValue) {
             state.previousValue = state.currentValue
+            state.currentValue = 0
           }
           state.operator = AvailableOperations.sum
           break
