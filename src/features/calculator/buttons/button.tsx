@@ -1,4 +1,5 @@
 import { FC, ReactElement } from "react"
+import "./button.css"
 
 export type ButtonProps = {
   className: string

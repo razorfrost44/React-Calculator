@@ -1,4 +1,5 @@
 import { FC, ReactElement } from "react"
+import "./CalculatorDisplay.css"
 
 export type DisplayProps = {
   className: string
@@ -42,8 +43,10 @@ const CalculatorDisplay: FC<DisplayProps> = ({
   }
 
   return (
-    <section>
-      <span data-testid="saved-value">{generateSavedValue()}</span>
+    <section className="calculator-display-section">
+      <span className="previous-value-span" data-testid="saved-value">
+        {generateSavedValue()}
+      </span>
       <input
         type="number"
         id="calc-display"

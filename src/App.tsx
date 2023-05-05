@@ -6,7 +6,9 @@ function App() {
     <div className="App">
       <header></header>
       <main>
-        <Calculator />
+        <section className="calculator-section">
+          <Calculator />
+        </section>
       </main>
       <footer></footer>
     </div>

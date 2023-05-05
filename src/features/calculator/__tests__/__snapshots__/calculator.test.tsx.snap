@@ -4,8 +4,11 @@ exports[`Control Pad > should match snapshot 1`] = `
 <div
   className="calculator"
 >
-  <section>
+  <section
+    className="calculator-display-section"
+  >
     <span
+      className="previous-value-span"
       data-testid="saved-value"
     />
     <input
@@ -21,136 +24,136 @@ exports[`Control Pad > should match snapshot 1`] = `
   >
     <button
       aria-label="Clear"
-      className="clear"
+      className="control-button clear"
       onClick={[Function]}
     >
-      Clear
+      CE
     </button>
     <button
       aria-label="Flip Sign"
-      className="flipSign"
+      className="control-button flipSign"
       onClick={[Function]}
     >
-      Flip Sign
+      +/-
     </button>
     <button
       aria-label="Percent"
-      className="percent"
+      className="control-button percent"
       onClick={[Function]}
     >
-      Percent
+      %
     </button>
     <button
       aria-label="Divide"
-      className="divide"
+      className="control-button divide last-column"
       onClick={[Function]}
     >
-      Divide
+      /
     </button>
     <button
       aria-label="Seven"
-      className="seven"
+      className="control-button seven"
       onClick={[Function]}
     >
-      Seven
+      7
     </button>
     <button
       aria-label="Eight"
-      className="eight"
+      className="control-button eight"
       onClick={[Function]}
     >
-      Eight
+      8
     </button>
     <button
       aria-label="Nine"
-      className="nine"
+      className="control-button nine"
       onClick={[Function]}
     >
-      Nine
+      9
     </button>
     <button
       aria-label="Multiply"
-      className="multiply"
+      className="control-button multiply last-column"
       onClick={[Function]}
     >
-      Multiply
+      X
     </button>
     <button
       aria-label="Four"
-      className="four"
+      className="control-button four"
       onClick={[Function]}
     >
-      Four
+      4
     </button>
     <button
       aria-label="Five"
-      className="five"
+      className="control-button five"
       onClick={[Function]}
     >
-      Five
+      5
     </button>
     <button
       aria-label="Six"
-      className="six"
+      className="control-button six"
       onClick={[Function]}
     >
-      Six
+      6
     </button>
     <button
       aria-label="Subtract"
-      className="subtract"
+      className="control-button subtract last-column"
       onClick={[Function]}
     >
-      Subtract
+      -
     </button>
     <button
       aria-label="One"
-      className="one"
+      className="control-button one"
       onClick={[Function]}
     >
-      One
+      1
     </button>
     <button
       aria-label="Two"
-      className="two"
+      className="control-button two"
       onClick={[Function]}
     >
-      Two
+      2
     </button>
     <button
       aria-label="Three"
-      className="three"
+      className="control-button three"
       onClick={[Function]}
     >
-      Three
+      3
     </button>
     <button
       aria-label="Sum"
-      className="sum"
+      className="control-button sum last-column"
       onClick={[Function]}
     >
-      Sum
+      +
     </button>
     <button
       aria-label="Zero"
-      className="zero"
+      className="control-button zero"
       onClick={[Function]}
     >
-      Zero
+      0
     </button>
     <button
       aria-label="Period"
-      className="period"
+      className="control-button period"
       onClick={[Function]}
     >
-      Period
+      .
     </button>
     <button
       aria-label="Equals"
-      className="equals"
+      className="control-button equals last-column"
       onClick={[Function]}
     >
-      Equals
+      =
     </button>
   </section>
 </div>

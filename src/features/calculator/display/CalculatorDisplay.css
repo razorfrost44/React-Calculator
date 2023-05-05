@@ -1,0 +1,29 @@
+.calculator-display-section {
+  display: grid;
+  margin-bottom: 1.5px;
+  width: 99%;
+  height: 10%;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: row;
+  gap: 3px;
+  grid-template-areas: "previousValue calc-display calc-display calc-display";
+}
+
+.previous-value-span {
+  grid-area: previousValue;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.calculator-display {
+  grid-area: calc-display;
+  font-family: Verdana;
+  background-color: #858694;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  border: 1px solid white;
+}

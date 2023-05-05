@@ -2,6 +2,7 @@ import { useAppSelector, useAppDispatch } from "../../app/hooks"
 import ControlPad from "./control-pad/ControlPad"
 import CalculatorDisplay from "./display/CalculatorDisplay"
 import { selectCurrent, selectPrevious, setCurrentVal } from "./calculatorSlice"
+import "./calculator.css"
 
 function Calculator() {
   const currentValue = useAppSelector(selectCurrent)

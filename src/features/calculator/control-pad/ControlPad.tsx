@@ -3,6 +3,7 @@ import { possibleControls } from "./possibleControls"
 import Button from "../buttons/button"
 import { useAppDispatch } from "../../../app/hooks"
 import { performLogic } from "../calculatorSlice"
+import "./ControlPad.css"
 
 const ControlPad = (): ReactElement => {
   const dispatch = useAppDispatch()
@@ -10,7 +11,7 @@ const ControlPad = (): ReactElement => {
   const allButtons = possibleControls.map((controlButton) => {
     return (
       <Button
-        className={controlButton.className}
+        className={`control-button ${controlButton.className}`}
         aria={controlButton.aria}
         onClick={() => {
           dispatch(performLogic(controlButton.onClick))
