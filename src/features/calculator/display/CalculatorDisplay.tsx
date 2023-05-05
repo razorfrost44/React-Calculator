@@ -3,9 +3,9 @@ import { FC, ReactElement } from "react"
 export type DisplayProps = {
   className: string
   aria: string
-  value: number
+  value: number | string
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-  savedValue: number
+  savedValue: number | string
 }
 
 const CalculatorDisplay: FC<DisplayProps> = ({

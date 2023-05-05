@@ -7,6 +7,7 @@ import calculatorReducer, {
   selectCurrent,
   selectPrevious,
   selectOperator,
+  isZero,
 } from "../calculatorSlice"
 import { LogicActionsObject } from "../logic/LogicActions"
 
@@ -118,7 +119,7 @@ describe("Calculator Slice", () => {
   it("should handle perform logic zero", () => {
     // arrange
     const expected: CalculatorState = {
-      currentValue: 1010,
+      currentValue: "1010",
       previousValue: 253,
       operator: "+",
     }
@@ -134,7 +135,7 @@ describe("Calculator Slice", () => {
   it("should handle perform logic one", () => {
     // arrange
     const expected: CalculatorState = {
-      currentValue: 1011,
+      currentValue: "1011",
       previousValue: 253,
       operator: "+",
     }
@@ -150,7 +151,7 @@ describe("Calculator Slice", () => {
   it("should handle perform logic two", () => {
     // arrange
     const expected: CalculatorState = {
-      currentValue: 1012,
+      currentValue: "1012",
       previousValue: 253,
       operator: "+",
     }
@@ -166,7 +167,7 @@ describe("Calculator Slice", () => {
   it("should handle perform logic three", () => {
     // arrange
     const expected: CalculatorState = {
-      currentValue: 1013,
+      currentValue: "1013",
       previousValue: 253,
       operator: "+",
     }
@@ -182,7 +183,7 @@ describe("Calculator Slice", () => {
   it("should handle perform logic four", () => {
     // arrange
     const expected: CalculatorState = {
-      currentValue: 1014,
+      currentValue: "1014",
       previousValue: 253,
       operator: "+",
     }
@@ -198,7 +199,7 @@ describe("Calculator Slice", () => {
   it("should handle perform logic five", () => {
     // arrange
     const expected: CalculatorState = {
-      currentValue: 1015,
+      currentValue: "1015",
       previousValue: 253,
       operator: "+",
     }
@@ -214,7 +215,7 @@ describe("Calculator Slice", () => {
   it("should handle perform logic six", () => {
     // arrange
     const expected: CalculatorState = {
-      currentValue: 1016,
+      currentValue: "1016",
       previousValue: 253,
       operator: "+",
     }
@@ -230,7 +231,7 @@ describe("Calculator Slice", () => {
   it("should handle perform logic seven", () => {
     // arrange
     const expected: CalculatorState = {
-      currentValue: 1017,
+      currentValue: "1017",
       previousValue: 253,
       operator: "+",
     }
@@ -246,7 +247,7 @@ describe("Calculator Slice", () => {
   it("should handle perform logic eight", () => {
     // arrange
     const expected: CalculatorState = {
-      currentValue: 1018,
+      currentValue: "1018",
       previousValue: 253,
       operator: "+",
     }
@@ -262,7 +263,7 @@ describe("Calculator Slice", () => {
   it("should handle perform logic nine", () => {
     // arrange
     const expected: CalculatorState = {
-      currentValue: 1019,
+      currentValue: "1019",
       previousValue: 253,
       operator: "+",
     }
@@ -399,7 +400,7 @@ describe("Calculator Slice", () => {
   it("should handle clear", () => {
     // arrange
     const expected: CalculatorState = {
-      currentValue: 0,
+      currentValue: "0",
       previousValue: 0,
       operator: "",
     }
@@ -506,5 +507,19 @@ describe("Calculator Slice", () => {
     // act
     // assert
     expect(actual).toEqual(expected)
+  })
+
+  it("should handle checking is zero", () => {
+    // arrange
+    // act
+    const actualZeroNum = isZero(0)
+    const notActualZeroNum = isZero(2)
+    const actualZeroString = isZero("0")
+    const notActualZeroString = isZero("2")
+    // assert
+    expect(actualZeroNum).toBe(true)
+    expect(notActualZeroNum).toBe(false)
+    expect(actualZeroString).toBe(true)
+    expect(notActualZeroString).toBe(false)
   })
 })

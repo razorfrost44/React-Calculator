@@ -13,8 +13,8 @@ import {
 
 // Calculator State
 export interface CalculatorState {
-  currentValue: number
-  previousValue: number
+  currentValue: number | string
+  previousValue: number | string
   operator: string
 }
 
@@ -22,6 +22,14 @@ const initialState: CalculatorState = {
   currentValue: 0,
   previousValue: 0,
   operator: "",
+}
+
+// Helpers
+export const isZero = (a: number | string): boolean => {
+  if (a === 0 || a === "0") {
+    return true
+  }
+  return false
 }
 
 // Calculator Slice
@@ -41,37 +49,78 @@ export const calculatorSlice = createSlice({
     performLogic: (state, action: PayloadAction<string>) => {
       switch (action.payload) {
         case LogicActionsObject.zero:
-          state.currentValue = Number(`${state.currentValue}0`)
+          if (!isZero(state.currentValue)) {
+            state.currentValue = `${state.currentValue}0`
+          } else {
+            state.currentValue = 0
+          }
           break
         case LogicActionsObject.one:
-          state.currentValue = Number(`${state.currentValue}1`)
+          if (!isZero(state.currentValue)) {
+            state.currentValue = `${state.currentValue}1`
+          } else {
+            state.currentValue = 1
+          }
           break
         case LogicActionsObject.two:
-          state.currentValue = Number(`${state.currentValue}2`)
+          if (!isZero(state.currentValue)) {
+            state.currentValue = `${state.currentValue}2`
+          } else {
+            state.currentValue = 2
+          }
           break
         case LogicActionsObject.three:
-          state.currentValue = Number(`${state.currentValue}3`)
+          if (!isZero(state.currentValue)) {
+            state.currentValue = `${state.currentValue}3`
+          } else {
+            state.currentValue = 3
+          }
           break
         case LogicActionsObject.four:
-          state.currentValue = Number(`${state.currentValue}4`)
+          if (!isZero(state.currentValue)) {
+            state.currentValue = `${state.currentValue}4`
+          } else {
+            state.currentValue = 4
+          }
           break
         case LogicActionsObject.five:
-          state.currentValue = Number(`${state.currentValue}5`)
+          if (!isZero(state.currentValue)) {
+            state.currentValue = `${state.currentValue}5`
+          } else {
+            state.currentValue = 5
+          }
           break
         case LogicActionsObject.six:
-          state.currentValue = Number(`${state.currentValue}6`)
+          if (!isZero(state.currentValue)) {
+            state.currentValue = `${state.currentValue}6`
+          } else {
+            state.currentValue = 6
+          }
           break
         case LogicActionsObject.seven:
-          state.currentValue = Number(`${state.currentValue}7`)
+          if (!isZero(state.currentValue)) {
+            state.currentValue = `${state.currentValue}7`
+          } else {
+            state.currentValue = 7
+          }
           break
         case LogicActionsObject.eight:
-          state.currentValue = Number(`${state.currentValue}8`)
+          if (!isZero(state.currentValue)) {
+            state.currentValue = `${state.currentValue}8`
+          } else {
+            state.currentValue = 8
+          }
           break
         case LogicActionsObject.nine:
-          state.currentValue = Number(`${state.currentValue}9`)
+          if (!isZero(state.currentValue)) {
+            state.currentValue = `${state.currentValue}9`
+          } else {
+            state.currentValue = 9
+          }
           break
         case LogicActionsObject.period:
-          if (Number.isInteger(state.currentValue)) {
+          const current = state.currentValue
+          if (Number.isInteger(current) || !current.includes(".")) {
             state.currentValue += "."
           }
           break
@@ -117,7 +166,7 @@ export const calculatorSlice = createSlice({
           }
           break
         case LogicActionsObject.clear:
-          state.currentValue = 0
+          state.currentValue = "0"
           state.previousValue = 0
           state.operator = ""
           break
