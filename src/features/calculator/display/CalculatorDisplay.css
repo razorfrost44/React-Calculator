@@ -8,7 +8,7 @@
   grid-auto-columns: 1fr;
   grid-auto-flow: row;
   gap: 3px;
-  grid-template-areas: "previousValue calc-display calc-display calc-display";
+  grid-template-areas: "previousValue previousValue calc-display calc-display";
 }
 
 .previous-value-span {
