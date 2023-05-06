@@ -1,6 +1,11 @@
 import { render, screen, fireEvent } from "@testing-library/react"
 import "@testing-library/jest-dom"
 import CalculatorDisplay, { DisplayProps } from "../CalculatorDisplay"
+import {
+  generateSavedValue,
+  generateValue,
+  generateOperator,
+} from "../../helpers/calculatorHelpers"
 
 const mockFn = vi.fn()
 
@@ -93,9 +98,10 @@ describe("Calculator Display", () => {
       <CalculatorDisplay
         className={startState.className}
         aria={startState.aria}
-        value={startState.value}
+        value={generateValue(startState.value)}
         onChange={startState.onChange}
-        savedValue={initialState.savedValue}
+        savedValue={generateSavedValue(initialState.savedValue)}
+        operator={initialState.operator}
       />,
     )
     const expected: string = ""
@@ -118,9 +124,10 @@ describe("Calculator Display", () => {
       <CalculatorDisplay
         className={startState.className}
         aria={startState.aria}
-        value={startState.value}
+        value={generateValue(startState.value)}
         onChange={startState.onChange}
-        savedValue={initialState.savedValue}
+        savedValue={generateSavedValue(initialState.savedValue)}
+        operator={initialState.operator}
       />,
     )
     const expected: string = "0"
@@ -161,12 +168,13 @@ describe("Calculator Display", () => {
       <CalculatorDisplay
         className={startState.className}
         aria={startState.aria}
-        value={startState.value}
+        value={generateValue(startState.value)}
         onChange={startState.onChange}
-        savedValue={startState.savedValue}
+        savedValue={generateValue(startState.savedValue)}
+        operator={initialState.operator}
       />,
     )
-    const expected: string = "99"
+    const expected: string = "99 +"
     // act
     const actual = screen.getByText(expected)
     // assert

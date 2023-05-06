@@ -7,7 +7,6 @@ import calculatorReducer, {
   selectCurrent,
   selectPrevious,
   selectOperator,
-  isZero,
 } from "../calculatorSlice"
 import { LogicActionsObject } from "../logic/LogicActions"
 
@@ -507,19 +506,5 @@ describe("Calculator Slice", () => {
     // act
     // assert
     expect(actual).toEqual(expected)
-  })
-
-  it("should handle checking is zero", () => {
-    // arrange
-    // act
-    const actualZeroNum = isZero(0)
-    const notActualZeroNum = isZero(2)
-    const actualZeroString = isZero("0")
-    const notActualZeroString = isZero("2")
-    // assert
-    expect(actualZeroNum).toBe(true)
-    expect(notActualZeroNum).toBe(false)
-    expect(actualZeroString).toBe(true)
-    expect(notActualZeroString).toBe(false)
   })
 })

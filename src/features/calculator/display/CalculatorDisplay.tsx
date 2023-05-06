@@ -18,47 +18,17 @@ const CalculatorDisplay: FC<DisplayProps> = ({
   savedValue,
   operator,
 }): ReactElement => {
-  const isLastCharAPeriod = (str: string) => str.slice(-1) === "."
-  const trimPeriod = (str: string) => str.slice(0, str.length - 1)
-
-  const generateSavedValue = () => {
-    let newVal: string | number = savedValue
-    if (newVal) {
-      newVal = `${savedValue}`
-    } else {
-      newVal = ""
-    }
-    if (isLastCharAPeriod(newVal)) {
-      newVal = trimPeriod(newVal)
-    }
-    return newVal
-  }
-
-  const generateValue = () => {
-    if (Number.isNaN(value)) {
-      return ""
-    }
-    if (typeof value === "string" && isLastCharAPeriod(value)) {
-      return trimPeriod(value)
-    }
-    return value
-  }
-
-  const getOperator = () => {
-    return operator ? ` ${operator}` : ""
-  }
-
   return (
     <section className="calculator-display-section">
       <span className="previous-value-span" data-testid="saved-value">
-        {generateSavedValue() + getOperator()}
+        {`${savedValue} ${operator}`}
       </span>
       <input
         type="number"
         id="calc-display"
         className={className}
         aria-label={aria}
-        value={generateValue()}
+        value={value}
         onChange={onChange}
       />
     </section>

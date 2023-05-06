@@ -7,6 +7,11 @@ import {
   selectPrevious,
   selectOperator,
 } from "./calculatorSlice"
+import {
+  generateSavedValue,
+  generateValue,
+  generateOperator,
+} from "./helpers/calculatorHelpers"
 import "./calculator.css"
 
 function Calculator() {
@@ -26,10 +31,10 @@ function Calculator() {
       <CalculatorDisplay
         className="calculator-display"
         aria="Display for the current calculator number"
-        value={currentValue}
+        value={generateValue(currentValue)}
         onChange={handleDisplayChange}
-        savedValue={previousValue}
-        operator={operator}
+        savedValue={generateSavedValue(previousValue)}
+        operator={generateOperator(operator)}
       />
       <ControlPad />
     </div>

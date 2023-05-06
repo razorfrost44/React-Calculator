@@ -10,7 +10,9 @@ exports[`Control Pad > should match snapshot 1`] = `
     <span
       className="previous-value-span"
       data-testid="saved-value"
-    />
+    >
+       
+    </span>
     <input
       aria-label="Display for the current calculator number"
       className="calculator-display"
