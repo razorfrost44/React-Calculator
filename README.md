@@ -48,6 +48,8 @@ There are many other techniques that and thought that went into this. Feel free 
 ## Setup
 
     git clone https://github.com/razorfrost44/React-Calculator.git
+    cd React-Calculator
+    npm install
     npm run dev
 
 ## Status
