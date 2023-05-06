@@ -2,7 +2,6 @@ import { ReactElement } from "react"
 import { possibleControls } from "./possibleControls"
 import Button from "../buttons/button"
 import { useAppDispatch } from "../../../app/hooks"
-import { performLogic } from "../calculatorSlice"
 import "./ControlPad.css"
 
 const ControlPad = (): ReactElement => {
@@ -14,7 +13,7 @@ const ControlPad = (): ReactElement => {
         className={`control-button ${controlButton.className}`}
         aria={controlButton.aria}
         onClick={() => {
-          dispatch(performLogic(controlButton.onClick))
+          dispatch(controlButton.onClick)
         }}
         label={controlButton.label}
         key={`key-${controlButton.className}`}

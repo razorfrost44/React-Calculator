@@ -6,6 +6,7 @@ import {
   generateValue,
   generateOperator,
 } from "../../helpers/calculatorHelpers"
+import { AvailableOperations } from "../../operations/operations"
 
 const mockFn = vi.fn()
 
@@ -16,7 +17,7 @@ describe("Calculator Display", () => {
     value: 5,
     onChange: mockFn,
     savedValue: 6,
-    operator: "+",
+    operator: AvailableOperations.sum,
   }
 
   const setup = () => {

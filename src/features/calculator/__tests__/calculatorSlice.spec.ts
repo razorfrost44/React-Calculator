@@ -3,18 +3,24 @@ import calculatorReducer, {
   setCurrentVal,
   setPreviousVal,
   setOperator,
-  performLogic,
   selectCurrent,
   selectPrevious,
   selectOperator,
+  numberButtonPress,
+  clearButtonPress,
+  flipButtonPress,
+  percentButtonPress,
+  operatorButtonPress,
+  periodButtonPress,
+  equalsButtonPress,
 } from "../calculatorSlice"
-import { LogicActionsObject } from "../logic/LogicActions"
+import { AvailableOperations } from "../operations/operations"
 
 const state = {
   calculator: {
     currentValue: 101,
     previousValue: 253,
-    operator: "+",
+    operator: AvailableOperations.sum,
   },
 }
 
@@ -22,7 +28,7 @@ describe("Calculator Slice", () => {
   const initialState: CalculatorState = {
     currentValue: 101,
     previousValue: 253,
-    operator: "+",
+    operator: AvailableOperations.sum,
   }
 
   it("should handle initial state", () => {
@@ -30,7 +36,7 @@ describe("Calculator Slice", () => {
     const expected: CalculatorState = {
       currentValue: 568,
       previousValue: 936,
-      operator: "+",
+      operator: AvailableOperations.sum,
     }
     const actual: CalculatorState = calculatorReducer(expected, {
       type: "unknown",
@@ -45,7 +51,7 @@ describe("Calculator Slice", () => {
     const expected: CalculatorState = {
       currentValue: 50,
       previousValue: 253,
-      operator: "+",
+      operator: AvailableOperations.sum,
     }
     const actual: CalculatorState = calculatorReducer(
       initialState,
@@ -61,7 +67,7 @@ describe("Calculator Slice", () => {
     const expected: CalculatorState = {
       currentValue: 101,
       previousValue: 95,
-      operator: "+",
+      operator: AvailableOperations.sum,
     }
     const actual: CalculatorState = calculatorReducer(
       initialState,
@@ -77,11 +83,11 @@ describe("Calculator Slice", () => {
     const expected: CalculatorState = {
       currentValue: 101,
       previousValue: 253,
-      operator: "-",
+      operator: AvailableOperations.subtract,
     }
     const actual: CalculatorState = calculatorReducer(
       initialState,
-      setOperator("-"),
+      setOperator(AvailableOperations.subtract),
     )
     // act
     // assert
@@ -120,11 +126,11 @@ describe("Calculator Slice", () => {
     const expected: CalculatorState = {
       currentValue: "1010",
       previousValue: 253,
-      operator: "+",
+      operator: AvailableOperations.sum,
     }
     const actual: CalculatorState = calculatorReducer(
       initialState,
-      performLogic(LogicActionsObject.zero),
+      numberButtonPress(0),
     )
     // act
     // assert
@@ -136,11 +142,11 @@ describe("Calculator Slice", () => {
     const expected: CalculatorState = {
       currentValue: "1011",
       previousValue: 253,
-      operator: "+",
+      operator: AvailableOperations.sum,
     }
     const actual: CalculatorState = calculatorReducer(
       initialState,
-      performLogic(LogicActionsObject.one),
+      numberButtonPress(1),
     )
     // act
     // assert
@@ -152,11 +158,11 @@ describe("Calculator Slice", () => {
     const expected: CalculatorState = {
       currentValue: "1012",
       previousValue: 253,
-      operator: "+",
+      operator: AvailableOperations.sum,
     }
     const actual: CalculatorState = calculatorReducer(
       initialState,
-      performLogic(LogicActionsObject.two),
+      numberButtonPress(2),
     )
     // act
     // assert
@@ -168,11 +174,11 @@ describe("Calculator Slice", () => {
     const expected: CalculatorState = {
       currentValue: "1013",
       previousValue: 253,
-      operator: "+",
+      operator: AvailableOperations.sum,
     }
     const actual: CalculatorState = calculatorReducer(
       initialState,
-      performLogic(LogicActionsObject.three),
+      numberButtonPress(3),
     )
     // act
     // assert
@@ -184,11 +190,11 @@ describe("Calculator Slice", () => {
     const expected: CalculatorState = {
       currentValue: "1014",
       previousValue: 253,
-      operator: "+",
+      operator: AvailableOperations.sum,
     }
     const actual: CalculatorState = calculatorReducer(
       initialState,
-      performLogic(LogicActionsObject.four),
+      numberButtonPress(4),
     )
     // act
     // assert
@@ -200,11 +206,11 @@ describe("Calculator Slice", () => {
     const expected: CalculatorState = {
       currentValue: "1015",
       previousValue: 253,
-      operator: "+",
+      operator: AvailableOperations.sum,
     }
     const actual: CalculatorState = calculatorReducer(
       initialState,
-      performLogic(LogicActionsObject.five),
+      numberButtonPress(5),
     )
     // act
     // assert
@@ -216,11 +222,11 @@ describe("Calculator Slice", () => {
     const expected: CalculatorState = {
       currentValue: "1016",
       previousValue: 253,
-      operator: "+",
+      operator: AvailableOperations.sum,
     }
     const actual: CalculatorState = calculatorReducer(
       initialState,
-      performLogic(LogicActionsObject.six),
+      numberButtonPress(6),
     )
     // act
     // assert
@@ -232,11 +238,11 @@ describe("Calculator Slice", () => {
     const expected: CalculatorState = {
       currentValue: "1017",
       previousValue: 253,
-      operator: "+",
+      operator: AvailableOperations.sum,
     }
     const actual: CalculatorState = calculatorReducer(
       initialState,
-      performLogic(LogicActionsObject.seven),
+      numberButtonPress(7),
     )
     // act
     // assert
@@ -248,11 +254,11 @@ describe("Calculator Slice", () => {
     const expected: CalculatorState = {
       currentValue: "1018",
       previousValue: 253,
-      operator: "+",
+      operator: AvailableOperations.sum,
     }
     const actual: CalculatorState = calculatorReducer(
       initialState,
-      performLogic(LogicActionsObject.eight),
+      numberButtonPress(8),
     )
     // act
     // assert
@@ -264,11 +270,11 @@ describe("Calculator Slice", () => {
     const expected: CalculatorState = {
       currentValue: "1019",
       previousValue: 253,
-      operator: "+",
+      operator: AvailableOperations.sum,
     }
     const actual: CalculatorState = calculatorReducer(
       initialState,
-      performLogic(LogicActionsObject.nine),
+      numberButtonPress(9),
     )
     // act
     // assert
@@ -280,11 +286,11 @@ describe("Calculator Slice", () => {
     const expected: CalculatorState = {
       currentValue: "101.",
       previousValue: 253,
-      operator: "+",
+      operator: AvailableOperations.sum,
     }
     const actual: CalculatorState = calculatorReducer(
       initialState,
-      performLogic(LogicActionsObject.period),
+      periodButtonPress(),
     )
     // act
     // assert
@@ -296,7 +302,7 @@ describe("Calculator Slice", () => {
     const starting: CalculatorState = {
       currentValue: 10,
       previousValue: 100,
-      operator: "/",
+      operator: AvailableOperations.divide,
     }
     const expected: CalculatorState = {
       currentValue: 10,
@@ -305,7 +311,7 @@ describe("Calculator Slice", () => {
     }
     const actual: CalculatorState = calculatorReducer(
       starting,
-      performLogic(LogicActionsObject.equals),
+      equalsButtonPress(),
     )
     // act
     // assert
@@ -317,7 +323,7 @@ describe("Calculator Slice", () => {
     const starting: CalculatorState = {
       currentValue: 8,
       previousValue: 8,
-      operator: "*",
+      operator: AvailableOperations.multiply,
     }
     const expected: CalculatorState = {
       currentValue: 64,
@@ -326,7 +332,7 @@ describe("Calculator Slice", () => {
     }
     const actual: CalculatorState = calculatorReducer(
       starting,
-      performLogic(LogicActionsObject.equals),
+      equalsButtonPress(),
     )
     // act
     // assert
@@ -338,7 +344,7 @@ describe("Calculator Slice", () => {
     const starting: CalculatorState = {
       currentValue: 3,
       previousValue: 10,
-      operator: "-",
+      operator: AvailableOperations.subtract,
     }
     const expected: CalculatorState = {
       currentValue: 7,
@@ -347,7 +353,7 @@ describe("Calculator Slice", () => {
     }
     const actual: CalculatorState = calculatorReducer(
       starting,
-      performLogic(LogicActionsObject.equals),
+      equalsButtonPress(),
     )
     // act
     // assert
@@ -359,7 +365,7 @@ describe("Calculator Slice", () => {
     const starting: CalculatorState = {
       currentValue: 5,
       previousValue: 11,
-      operator: "+",
+      operator: AvailableOperations.sum,
     }
     const expected: CalculatorState = {
       currentValue: 16,
@@ -368,7 +374,7 @@ describe("Calculator Slice", () => {
     }
     const actual: CalculatorState = calculatorReducer(
       starting,
-      performLogic(LogicActionsObject.equals),
+      equalsButtonPress(),
     )
     // act
     // assert
@@ -389,7 +395,7 @@ describe("Calculator Slice", () => {
     }
     const actual: CalculatorState = calculatorReducer(
       starting,
-      performLogic(LogicActionsObject.equals),
+      equalsButtonPress(),
     )
     // act
     // assert
@@ -405,7 +411,7 @@ describe("Calculator Slice", () => {
     }
     const actual: CalculatorState = calculatorReducer(
       initialState,
-      performLogic(LogicActionsObject.clear),
+      clearButtonPress(),
     )
     // act
     // assert
@@ -417,11 +423,11 @@ describe("Calculator Slice", () => {
     const expected: CalculatorState = {
       currentValue: -101,
       previousValue: 253,
-      operator: "+",
+      operator: AvailableOperations.sum,
     }
     const actual: CalculatorState = calculatorReducer(
       initialState,
-      performLogic(LogicActionsObject.flip),
+      flipButtonPress(),
     )
     // act
     // assert
@@ -433,11 +439,11 @@ describe("Calculator Slice", () => {
     const expected: CalculatorState = {
       currentValue: 1.01,
       previousValue: 253,
-      operator: "+",
+      operator: AvailableOperations.sum,
     }
     const actual: CalculatorState = calculatorReducer(
       initialState,
-      performLogic(LogicActionsObject.percent),
+      percentButtonPress(),
     )
     // act
     // assert
@@ -449,11 +455,11 @@ describe("Calculator Slice", () => {
     const expected: CalculatorState = {
       currentValue: 0,
       previousValue: 101,
-      operator: "/",
+      operator: AvailableOperations.divide,
     }
     const actual: CalculatorState = calculatorReducer(
       initialState,
-      performLogic(LogicActionsObject.divide),
+      operatorButtonPress(AvailableOperations.divide),
     )
     // act
     // assert
@@ -465,11 +471,11 @@ describe("Calculator Slice", () => {
     const expected: CalculatorState = {
       currentValue: 0,
       previousValue: 101,
-      operator: "*",
+      operator: AvailableOperations.multiply,
     }
     const actual: CalculatorState = calculatorReducer(
       initialState,
-      performLogic(LogicActionsObject.multiply),
+      operatorButtonPress(AvailableOperations.multiply),
     )
     // act
     // assert
@@ -481,11 +487,11 @@ describe("Calculator Slice", () => {
     const expected: CalculatorState = {
       currentValue: 0,
       previousValue: 101,
-      operator: "-",
+      operator: AvailableOperations.subtract,
     }
     const actual: CalculatorState = calculatorReducer(
       initialState,
-      performLogic(LogicActionsObject.subtract),
+      operatorButtonPress(AvailableOperations.subtract),
     )
     // act
     // assert
@@ -497,11 +503,11 @@ describe("Calculator Slice", () => {
     const expected: CalculatorState = {
       currentValue: 0,
       previousValue: 101,
-      operator: "+",
+      operator: AvailableOperations.sum,
     }
     const actual: CalculatorState = calculatorReducer(
       initialState,
-      performLogic(LogicActionsObject.sum),
+      operatorButtonPress(AvailableOperations.sum),
     )
     // act
     // assert

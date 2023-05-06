@@ -4,7 +4,13 @@ import {
   setCurrentValReducer,
   setPreviousValReducer,
   setOperatorReducer,
-  performLogicReducer,
+  numberButtonReducer,
+  clearButtonReducer,
+  flipButtonReducer,
+  percentButtonReducer,
+  operatorButtonReducer,
+  periodButtonReducer,
+  equalsButtonReducer,
 } from "./calculatorReducers"
 
 // Calculator State
@@ -28,7 +34,13 @@ export const calculatorSlice = createSlice({
     setCurrentVal: setCurrentValReducer,
     setPreviousVal: setPreviousValReducer,
     setOperator: setOperatorReducer,
-    performLogic: performLogicReducer,
+    numberButtonPress: numberButtonReducer,
+    clearButtonPress: clearButtonReducer,
+    flipButtonPress: flipButtonReducer,
+    percentButtonPress: percentButtonReducer,
+    operatorButtonPress: operatorButtonReducer,
+    periodButtonPress: periodButtonReducer,
+    equalsButtonPress: equalsButtonReducer,
   },
 })
 
@@ -39,6 +51,16 @@ export const selectPrevious = (state: RootState) =>
 export const selectOperator = (state: RootState) => state.calculator.operator
 
 // Exports
-export const { setCurrentVal, setPreviousVal, setOperator, performLogic } =
-  calculatorSlice.actions
+export const {
+  setCurrentVal,
+  setPreviousVal,
+  setOperator,
+  numberButtonPress,
+  clearButtonPress,
+  flipButtonPress,
+  percentButtonPress,
+  operatorButtonPress,
+  periodButtonPress,
+  equalsButtonPress,
+} = calculatorSlice.actions
 export default calculatorSlice.reducer

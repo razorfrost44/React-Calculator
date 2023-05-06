@@ -37,3 +37,7 @@ export const generateValue = (value: number | string): number | string => {
 export const generateOperator = (operator: string) => {
   return operator ? ` ${operator}` : ""
 }
+
+export const includesPeriod = (str: string): boolean => {
+  return str.includes(".")
+}
